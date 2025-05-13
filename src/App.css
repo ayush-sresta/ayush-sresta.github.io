@@ -1,0 +1,9 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+    font-family: var(--font-primary);
+}
+.cursive-font {
+  font-family: var(--font-cursive);
+}
