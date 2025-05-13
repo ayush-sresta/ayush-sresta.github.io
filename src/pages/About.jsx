@@ -3,7 +3,7 @@ import MyPhoto from '../assets/pp_5.png';
 
 const About = () => {
   return (
-    <div className="py-20">
+    <div className="">
       <div className="max-w-7xl mx-auto px-5 lg:px-10">
         <div className="flex flex-col items-center text-center space-y-10">
 

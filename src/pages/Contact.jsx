@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaPhoneAlt, FaEnvelope, FaInstagram, FaGithub, FaTwitter } from "react-icons/fa";
+import { toast, ToastContainer } from 'react-toastify';
 
 const Contact = () => {
   const form = useRef();
@@ -9,15 +10,19 @@ const Contact = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_lpax32i', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
+      .sendForm('service_lpax32i', 'template_1aon56h', form.current, {
+        publicKey: 'IC_od0RU4aFLCo1sW',
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          toast.success('Message sent successfully!', {
+            autoClose: 3000,
+          });
         },
         (error) => {
-          console.log('FAILED...', error.text);
+          toast.error(`Failed to send message: ${error.text}. Please try again.`, {
+            autoClose: 3000,
+          });
         },
       );
   };
@@ -77,6 +82,7 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Your Name"
+                name="name"
                 className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
               />
             </div>
@@ -84,6 +90,7 @@ const Contact = () => {
               <label className="block text-sm font-medium mb-1">Email</label>
               <input
                 type="email"
+                name='email'
                 placeholder="you@example.com"
                 className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
               />
@@ -93,6 +100,7 @@ const Contact = () => {
               <textarea
                 rows="5"
                 placeholder="Your message..."
+                name='message'
                 className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
               />
             </div>
@@ -102,6 +110,7 @@ const Contact = () => {
             >
               Send Message
             </button>
+            <ToastContainer position='top-center' />
           </form>
         </div>
       </div>

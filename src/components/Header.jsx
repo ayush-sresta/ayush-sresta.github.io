@@ -35,7 +35,7 @@ const Header = () => {
       },
       {
         root: null,
-        rootMargin: "-50px 0px 0px 0px",
+        rootMargin: "-20% 0px -80% 0px", // Adjusted to better detect the active section
         threshold: [0.2, 0.5, 0.75], // more sensitivity
       }
     );
@@ -44,7 +44,28 @@ const Header = () => {
 
     return () => observer.disconnect();
   }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = 80; // Adjust for the height of the navbar
+      const hash = window.location.hash;
+      if (hash) {
+        const targetElement = document.querySelector(hash);
+        if (targetElement) {
+          const targetPosition = targetElement.offsetTop - offset;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    };
 
+    window.addEventListener("hashchange", handleScroll);
+
+    return () => {
+      window.removeEventListener("hashchange", handleScroll);
+    };
+  }, []);
 
   const handleClick = (id) => {
     setActiveLink(id);
