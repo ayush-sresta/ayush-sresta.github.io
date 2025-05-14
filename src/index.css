@@ -16,10 +16,4 @@
   /* Accent & interactive */
   --color-accent: #34a853;
   --color-accent-hover: #2c8a45;
-
-  /* Borders & dividers */
-  --color-border: #e0e0e0;
-
-  /* Shadows */
-  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
