@@ -15,23 +15,23 @@ const AppLayout = () => {
       <section id='home'>
         <Home />
       </section>
-      <section className="py-30" id='about'>
+      <section className="lg:py-30 py-20" id='about'>
         <About />
 
       </section>
-      <section className="py-30" id='services'>
+      <section className="lg:py-30 py-20" id='services'>
         <Services />
 
       </section>
-      <section className="py-30" id='skills'>
+      <section className="lg:py-30 py-20" id='skills'>
 
         <Skills />
       </section>
-      <section className="py-30" id='contact'>
+      <section className="lg:py-30 py-20" id='contact'>
 
         <Contact />
       </section>
-      <section className="py-10">
+      <section>
       <Footer />
       </section>
         
